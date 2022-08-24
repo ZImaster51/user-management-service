@@ -12,5 +12,11 @@ Role User:Hanya bisa edit profile sendiri, ganti nama, email, foto, change no hp
 
 https://docs.google.com/document/d/1GmjR5THiTkTRa65FNBIYIGZl8vHMmcDp/edit?usp=sharing&ouid=112862224050382097838&rtpof=true&sd=true
 
+## to running manual:
+```
+npm install -g nodemon
+nodemon index.js
+```
+
 
 
