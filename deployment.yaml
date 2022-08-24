@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $APP_NAME-v$APP_MAJOR_VERSION
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appname: $APP_NAME-v$APP_MAJOR_VERSION
+  template:
+    metadata:
+      labels:
+        appname: $APP_NAME-v$APP_MAJOR_VERSION
+    spec:
+      containers:
+        - name: $APP_NAME-v$APP_MAJOR_VERSION
+          image: path-image-registry/$APP_NAME-v$APP_MAJOR_VERSION:$APP_FULL_VERSION
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    appname: $APP_NAME-v$APP_MAJOR_VERSION
+  name: $APP_NAME-v$APP_MAJOR_VERSION
+spec:
+  type:  LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  selector:
+    appname: $APP_NAME-v$APP_MAJOR_VERSION
