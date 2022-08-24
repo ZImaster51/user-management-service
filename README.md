@@ -18,5 +18,7 @@ npm install -g nodemon
 nodemon index.js
 ```
 
+Akun yang dibuat ini tersinkron dengan email, bisa digunakan verify, reset password melalui email. Biasanya akan masuk ke spam, untuk itu harus di Laporkan bukan phising.
+
 
 
